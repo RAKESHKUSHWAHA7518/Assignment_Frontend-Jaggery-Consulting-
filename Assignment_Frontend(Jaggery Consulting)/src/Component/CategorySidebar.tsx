@@ -16,7 +16,7 @@ interface CategorySidebarHalfCircularProps {
   onCategoryChange: (category: string) => void;
 }
 
-const CategorySidebar : React.FC<CategorySidebarHalfCircularProps> = ({
+const CategorySidebarHalfCircular: React.FC<CategorySidebarHalfCircularProps> = ({
   categories,
   activeCategory,
   onCategoryChange,
@@ -87,7 +87,7 @@ const CategorySidebar : React.FC<CategorySidebarHalfCircularProps> = ({
         height={containerHeight}
         className="absolute top-0 left-0 pointer-events-none"
       >
-        
+        {/* Render permanent connection paths for all categories */}
         {categories.map((cat, index) => {
           const isActive = activeCategory === cat.name;
           const color = cat.color || defaultColors[index % defaultColors.length];
@@ -109,11 +109,11 @@ const CategorySidebar : React.FC<CategorySidebarHalfCircularProps> = ({
             />
           );
         })}
-         
+        
 
       </svg>
 
-       
+      {/* Right side connection points for each category */}
       {categories.map((cat, index) => {
         const isActive = activeCategory === cat.name;
         const color = cat.color || defaultColors[index % defaultColors.length];
@@ -262,4 +262,4 @@ const CategorySidebar : React.FC<CategorySidebarHalfCircularProps> = ({
   );
 };
 
-export default CategorySidebar ;
+export default CategorySidebarHalfCircular;

@@ -438,23 +438,20 @@ function App() {
             ))}
           </motion.div>
         ) : (
-          // If 4 or more rides, render a sliding carousel with controls and smooth motion
+           
           <>
             <CarouselControls onPrev={handlePrev} onNext={handleNext} />
-            {/* Container that clips overflowing cards */}
+           
             <div className="overflow-hidden relative">
-              {/* Animated inner container:
-                  - Duplicates filteredRides to allow seamless looping.
-                  - Each card has a fixed width (w-96 = 384px) and a 16px gap (space-x-4).
-              */}
+               
               <motion.div
                 className="flex "
-                animate={{ x: -startIndex * (384 + 16) }} // 384px card width + 16px gap
+                animate={{ x: -startIndex * (384 + 16) }}  
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 {[
                   ...filteredRides,
-                  // Append the first 4 cards for seamless looping
+                  
                   ...filteredRides.slice(0, 4),
                 ].map((ride, index) => (
                   <div key={index} className="w-72 flex-shrink-0">
